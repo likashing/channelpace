@@ -1,0 +1,137 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/optimism-iphone/!svn/ver/19/trunk/Classes/ASIHTTPRequest
+END
+ASIHTTPRequest.m
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/optimism-iphone/!svn/ver/95/trunk/Classes/ASIHTTPRequest/ASIHTTPRequest.m
+END
+ASICacheDelegate.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/optimism-iphone/!svn/ver/19/trunk/Classes/ASIHTTPRequest/ASICacheDelegate.h
+END
+ASINetworkQueue.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/optimism-iphone/!svn/ver/19/trunk/Classes/ASIHTTPRequest/ASINetworkQueue.h
+END
+ASIDataDecompressor.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/optimism-iphone/!svn/ver/19/trunk/Classes/ASIHTTPRequest/ASIDataDecompressor.h
+END
+ASIAuthenticationDialog.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/optimism-iphone/!svn/ver/19/trunk/Classes/ASIHTTPRequest/ASIAuthenticationDialog.h
+END
+ASIProgressDelegate.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/optimism-iphone/!svn/ver/19/trunk/Classes/ASIHTTPRequest/ASIProgressDelegate.h
+END
+ASIDownloadCache.m
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/optimism-iphone/!svn/ver/19/trunk/Classes/ASIHTTPRequest/ASIDownloadCache.m
+END
+ASINetworkQueue.m
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/optimism-iphone/!svn/ver/19/trunk/Classes/ASIHTTPRequest/ASINetworkQueue.m
+END
+Reachability.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/optimism-iphone/!svn/ver/22/trunk/Classes/ASIHTTPRequest/Reachability.h
+END
+ASIDataDecompressor.m
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/optimism-iphone/!svn/ver/19/trunk/Classes/ASIHTTPRequest/ASIDataDecompressor.m
+END
+ASIAuthenticationDialog.m
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/optimism-iphone/!svn/ver/22/trunk/Classes/ASIHTTPRequest/ASIAuthenticationDialog.m
+END
+ASIFormDataRequest.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/optimism-iphone/!svn/ver/19/trunk/Classes/ASIHTTPRequest/ASIFormDataRequest.h
+END
+Reachability.m
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/optimism-iphone/!svn/ver/19/trunk/Classes/ASIHTTPRequest/Reachability.m
+END
+ASIFormDataRequest.m
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/optimism-iphone/!svn/ver/19/trunk/Classes/ASIHTTPRequest/ASIFormDataRequest.m
+END
+ASIInputStream.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/optimism-iphone/!svn/ver/19/trunk/Classes/ASIHTTPRequest/ASIInputStream.h
+END
+ASIHTTPRequestConfig.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/optimism-iphone/!svn/ver/19/trunk/Classes/ASIHTTPRequest/ASIHTTPRequestConfig.h
+END
+ASIInputStream.m
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/optimism-iphone/!svn/ver/19/trunk/Classes/ASIHTTPRequest/ASIInputStream.m
+END
+ASIHTTPRequestDelegate.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/optimism-iphone/!svn/ver/19/trunk/Classes/ASIHTTPRequest/ASIHTTPRequestDelegate.h
+END
+ASIDataCompressor.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/optimism-iphone/!svn/ver/19/trunk/Classes/ASIHTTPRequest/ASIDataCompressor.h
+END
+ASIHTTPRequest.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/optimism-iphone/!svn/ver/19/trunk/Classes/ASIHTTPRequest/ASIHTTPRequest.h
+END
+ASIDownloadCache.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/optimism-iphone/!svn/ver/19/trunk/Classes/ASIHTTPRequest/ASIDownloadCache.h
+END
+ASIDataCompressor.m
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/optimism-iphone/!svn/ver/19/trunk/Classes/ASIHTTPRequest/ASIDataCompressor.m
+END

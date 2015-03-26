@@ -1,0 +1,161 @@
+//
+//  DBImageView.m
+//  DBImageView
+//
+//  Created by iBo on 25/08/14.
+//  Copyright (c) 2014 Daniele Bogo. All rights reserved.
+//
+
+#import "DBImageView.h"
+#import "DBImageRequest.h"
+#import "DBImage.h"
+#import "DBImageViewCache.h"
+
+static BOOL DBImageShouldDownload = YES;
+static NSString *const kDBImageViewShouldStartDownload = @"kDBImageViewShouldStartDownload";
+
+@interface DBImageView () {
+    DBImageRequest *_currentRequest;
+    UIImageView *_imageView;
+}
+
+@property (nonatomic, strong) DBImage *remoteImage;
+@end
+
+@implementation DBImageView
+
++ (void) clearCache
+{
+    [[DBImageViewCache cache] clearCache];
+}
+
++ (void) triggerImageRequests:(BOOL)start
+{
+    if (start != DBImageShouldDownload) {
+		DBImageShouldDownload = start;
+		
+		if (start)
+			[[NSNotificationCenter defaultCenter] postNotificationName:kDBImageViewShouldStartDownload object:nil];
+	}
+}
+
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        // Initialization code
+        self.backgroundColor = [UIColor colorWithWhite:0.7 alpha:1];
+        
+        _imageView = [[UIImageView alloc] initWithFrame:self.bounds];
+        [self addSubview:_imageView];
+
+        [self setContentMode:UIViewContentModeScaleAspectFill];
+        [self setClipsToBounds:YES];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shouldStartDownload:) name:kDBImageViewShouldStartDownload
+                                                   object:nil];
+    }
+    return self;
+}
+
+- (void) dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [_currentRequest cancel];
+}
+
+- (void) setFrame:(CGRect)frame
+{
+    [super setFrame:frame];
+    
+    _imageView.frame = self.bounds;
+}
+
+- (void) setClipsToBounds:(BOOL)clipsToBounds
+{
+    [super setClipsToBounds:clipsToBounds];
+    [_imageView setClipsToBounds:clipsToBounds];
+}
+
+- (void) setContentMode:(UIViewContentMode)contentMode
+{
+    _imageView.contentMode = contentMode;
+}
+
+- (void) shouldStartDownload:(NSNotification *)notification
+{
+    [self startDownloadImage];
+}
+
+- (void) startDownloadImage
+{
+    if ( _currentRequest ) {
+        return;
+    }
+    
+    if ( !_remoteImage ) {
+        return;
+    }
+    
+    [[DBImageViewCache cache] imageForURL:_remoteImage.imageURL found:^(UIImage *image)
+    {
+        if (image)
+            _imageView.image = image;
+    } notFound:^{
+        if ( !DBImageShouldDownload ) {
+            return;
+        }
+        
+        
+        _currentRequest = _remoteImage.imageRequest;
+        
+        [_currentRequest downloadImageWithSuccess:^(UIImage *image, NSHTTPURLResponse *response) {
+            if (image != nil)
+                _imageView.image = image;
+            _currentRequest = nil;
+            _imageWithPath = nil;
+        } error:^(NSError *error) {
+            _currentRequest = nil;
+            _imageWithPath = nil;
+        }];
+    }];
+}
+
+#pragma mark - Properties
+
+- (void) setImageWithPath:(NSString *)imageWithPath
+{
+    if ( [_imageWithPath isEqualToString:imageWithPath] ) {
+        return;
+    }
+    
+    //_imageView.image = [UIImage imageNamed:@"no_photo_loggedin.png"];
+    _imageWithPath = imageWithPath;
+    [self setRemoteImage:[DBImage imageWithPath:_imageWithPath]];
+}
+
+- (void) setRemoteImage:(DBImage *)remoteImage
+{
+    if ( remoteImage != _remoteImage ) {
+        [_currentRequest cancel];
+		_currentRequest = nil;
+        
+        _remoteImage = remoteImage;
+        
+        if ( _placeHolder ) {
+            _imageView.image = _placeHolder;
+        }
+        
+        [self startDownloadImage];
+    }
+}
+
+- (void) setImage:(UIImage *)image
+{
+    _imageView.image = image;
+}
+
+@end
+// 版权属于原作者
+// http://code4app.com (cn) http://code4app.net (en)
+// 发布代码于最专业的源码分享网站: Code4App.com
